@@ -9,6 +9,7 @@ This is my personal CV website created using only HTML and CSS as part of Assign
 - Responsive Design
 
 ## Live Website
+[View Live Website](https://my-cv-website-tau.vercel.app/)
 
 ## Student Information
 Name: Fatima Tahir 
