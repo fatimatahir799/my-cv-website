@@ -50,7 +50,6 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* Better contrast on light blue header */
 .header h1,
 .header p {
     color: #1a2b44;
@@ -190,7 +189,6 @@ body.dark .header p {
     }
 }
 
-/* Scale up animation */
 .scale-up {
     animation: scaleUp 0.6s ease-out forwards;
 }
@@ -206,7 +204,6 @@ body.dark .header p {
     }
 }
 
-/* Bounce in animation */
 .bounce-in {
     animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
@@ -225,7 +222,6 @@ body.dark .header p {
     }
 }
 
-/* Rotate in animation */
 .rotate-in {
     animation: rotateIn 0.8s ease-out forwards;
 }
@@ -241,7 +237,6 @@ body.dark .header p {
     }
 }
 
-/* Flip in animation */
 .flip-in {
     animation: flipIn 0.8s ease-out forwards;
     transform-style: preserve-3d;
@@ -258,7 +253,6 @@ body.dark .header p {
     }
 }
 
-/* Staggered fade for list items */
 .stagger-item {
     opacity: 0;
     animation: fadeInStagger 0.5s ease-out forwards;
@@ -284,7 +278,6 @@ body.dark .header p {
     }
 }
 
-/* Pulse animation for buttons on hover */
 @keyframes pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(65, 105, 225, 0.7);
@@ -372,9 +365,6 @@ body.dark .header p {
     }
 }
 
-/* ===================================================== */
-/* ================= PDF EXPORT MODE =================== */
-/* ===================================================== */
 .pdf-export {
     background: #ffffff !important;
     font-size: 11px;
@@ -391,7 +381,6 @@ body.dark .header p {
     transform: none !important;
 }
 
-/* Header in PDF - keep the light blue background with rounded corners */
 .pdf-export .header {
     padding: 15px 20px 15px 20px !important;
     margin-bottom: 15px !important;
@@ -471,7 +460,6 @@ body.dark .header p {
     display: none !important;
 }
 
-/* Footer compact & locked to bottom */
 .pdf-export footer {
     padding: 8px;
     font-size: 10px;
