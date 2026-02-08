@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+<div id="cv">
+
+<header class="header fade-in">
+    <div class="header-wrapper">
+        <div class="header-text">
+            <h1><span class="highlight">Fatima Tahir</span></h1>
+            <button id="themeToggle" class="btn_theme">🌙 Dark Mode</button>
+            <p>BSCS Student | FAST NUCES Lahore</p>
+        </div>
+        <img src="images/profile.jpg" alt="Profile Photo" class="profile-pic">
+    </div>
+</header>
+
+<main class="container flex-layout">
+
+<section class="contact fade-in">
+    <h3>Contact</h3>
+
+    <p>📞 0327-8875230</p>
+
+    <p>
+        📧
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fatimatahir0799@gmail.com"
+           target="_blank">
+           fatimatahir0799@gmail.com
+        </a>
+    </p>
+
+    <p>🔗
+        <a href="#" target="_blank">LinkedIn Profile</a>
+    </p>
+
+    <button onclick="downloadPDF()" class="btn_theme">
+        ⬇ Download CV (PDF)
+    </button>
+
+    <form class="contact-form" onsubmit="sendEmail(event)">
+
+        <h4>Send Message</h4>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" class="btn_theme">Send</button>
+    </form>
+</section>
+
+<section class="content fade-in">
+    <section>
+        <h2><span class="highlight">About Me</span></h2>
+        <p>
+             Computer Science student at FAST NUCES Lahore.
+        Passionate about web development, full-stack projects, creative coding, and AI-integrated applications. Always open to new challenges, collaborations, and interesting tasks. </p>
+   
+        </p>
+    </section>
+
+    <section>
+        <h2><span class="highlight">Skills</span></h2>
+        <ul>
+             <li><strong>Programming Languages:</strong> C, C++, Python, JavaScript, TypeScript</li>
+        <li><strong>Frontend Development:</strong> HTML, CSS, React</li>
+        <li><strong>Backend & Full-Stack:</strong> Node.js, Express.js, MongoDB (MERN)</li>
+        <li><strong>Applied AI & Image Processing:</strong> Digital Image Processing</li>
+        <li><strong>Tools:</strong> GitHub</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="highlight">Projects</span></h2>
+        <ul>
+             <li> <strong>Mazdoor Web App</strong>
+    <p>
+        A web application developed to bridge the gap between daily wage workers and employers requiring household and office services such as cleaning, gardening, and maintenance. The system provides proper worker authentication for reliability, a user-friendly and voice-assisted interface to support low-literacy users, and integrated digital payment methods to enable secure and convenient transactions.
+    </p>
+    </li>
+
+    <li> <strong>ChildGuard</strong>
+    <p>
+        A web application focused on child education and protection, connecting parents, volunteers, case reporters, and sponsors to support children through fee management and abuse/labor case reporting. (Typescript, Javascript, CSS)
+    </p>
+    </li>
+
+    <li> <strong>AI-Powered Image Colorization System</strong>
+    <p>
+        Built an AI-based image colorization tool using U-Net to add realistic colors to grayscale images in LAB space, with full training pipeline and Tkinter GUI.
+        (Python, PyTorch, Tkinter, scikit-image, Pillow)    </p>
+    </li>
+
+   <li> <strong>Solitaire Card Game</strong>
+   <p>
+        Built classic Solitaire game demonstrating practical use of Stack, Queue and Linked Lists. (C++)   </p>
+   </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="highlight">Education</span></h2>
+        <ul>
+            <li>BSCS - FAST NUCES (2023-2027)</li>
+            <li>FSc Pre-Engineering - Punjab College (2020-2022)</li>
+            <li>Matric - LGGS (2018-2027)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="highlight">Hobbies and Interests</span></h2>
+        <ul>
+        <li>Painting</li>
+        <li>Badminton</li>
+        <li>Creative Writing</li>
+        </ul>
+    </section>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Fatima Tahir</p>
+</footer>
+
+</div>
+
+<!--Dark mode -->
+<script>
+document.getElementById("themeToggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+</script>
+
+<!--pfd -->
+<script>
+function downloadPDF() {
+    const element = document.getElementById("cv");
+
+    document.body.classList.remove("dark");
+    element.classList.add("pdf-export");
+
+    const options = {
+        margin: 0,
+        filename: 'Fatima_Tahir_CV.pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: {
+    scale: 2,
+    backgroundColor: '#ffffff',
+    scrollX: 0,
+    scrollY: 0
+},
+
+        jsPDF: {
+            unit: 'in',
+            format: 'a4',
+            orientation: 'portrait'
+        }
+    };
+
+    html2pdf().from(element).set(options).save().then(() => {
+        element.classList.remove("pdf-export");
+    });
+}
+</script>
+
+<script>
+function sendEmail(event) {
+    event.preventDefault();
+
+    const name = document.querySelector('.contact-form input[type="text"]').value;
+    const email = document.querySelector('.contact-form input[type="email"]').value;
+    const message = document.querySelector('.contact-form textarea').value;
+
+    const subject = encodeURIComponent("Message from CV");
+    const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    const gmailURL =
+        `https://mail.google.com/mail/?view=cm&fs=1&to=fatimatahir0799@gmail.com&su=${subject}&body=${body}`;
+
+    window.open(gmailURL, "_blank");
+}
+</script>
+
+
+
+</body>
+</html>
